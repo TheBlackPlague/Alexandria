@@ -510,7 +510,8 @@ int negamax(int alpha, int beta, int depth, S_Board* pos, S_SearchINFO* info,
 		(eval <=
 			(alpha - razoring_margin1 - razoring_margin2 * (depth - 1)))) {
 
-		return Quiescence(alpha, beta, pos, info);
+        Score = Quiescence(alpha - 1, alpha, pos, info);
+        if (Score < alpha) return Score;
 	}
 
 moves_loop:
